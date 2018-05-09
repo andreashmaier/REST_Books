@@ -44,4 +44,11 @@ public class BookResource {
         Book book = bookService.getBook(id);
         return book;
     }
+
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+
+    public String sayHello(@QueryParam("name") String name, @QueryParam("vorname") String vorname) {
+        return "Hallo " + vorname + " " + name;
+    }
 }
