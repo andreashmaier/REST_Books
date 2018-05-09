@@ -2,8 +2,10 @@ package de.gbsschulen.rest;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
+@XmlRootElement
 @Entity
 public class Book {
 
