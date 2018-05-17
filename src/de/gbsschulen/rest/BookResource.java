@@ -47,8 +47,32 @@ public class BookResource {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-
     public String sayHello(@QueryParam("name") String name, @QueryParam("vorname") String vorname) {
         return "Hallo " + vorname + " " + name;
+    }
+
+
+    // curl -X PUT -d '{"id":42,"autor":"Maier","isbn":"234","titel":"Mein Buch"}' -H "Content-Type: application/json" localhost:9090/rest/bookstore/createBook
+    // curl -X PUT -T book.json -H "Content-Type: application/json" localhost:9090/rest/bookstore/createBook
+
+    @PUT
+    @Path("/createBook")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    public String putBook(Book book) {
+        bookService.add(book);
+        System.out.println(book);
+        return "Hingezugefügt: " + book.getTitel();
+    }
+
+    // curl -X POST -d '{"id":42,"autor":"Maier, Andreas","isbn":"1234","titel":"Mein Buch"}' -H "Content-Type: application/json" localhost:9090/rest/bookstore/changeBook
+
+    @POST
+    @Path("/changeBook")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    public String changeBook(Book book) {
+        bookService.change(book);
+        return "Geändert: " + book.toString();
     }
 }

@@ -19,7 +19,8 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
-          <factory-entry name="books" />
+          <factory-entry name="books" value="9d0a7a56-26d7-47d3-851d-f4e9c0f2fd3a" />
+          <factory-entry name="cities" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/Resources/META-INF/persistence.xml" />
       </configuration>
